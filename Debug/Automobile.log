@@ -1,0 +1,28 @@
+﻿  Source.cpp
+C:\Users\gutar\source\repos\Automobile\Source.cpp(40,16): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\gutar\source\repos\Automobile\Source.cpp(48,16): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+C:\Users\gutar\source\repos\Automobile\Source.cpp(305,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\gutar\source\repos\Automobile\Source.cpp(347,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\gutar\source\repos\Automobile\Source.cpp(350,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\gutar\source\repos\Automobile\Source.cpp(353,85): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\gutar\source\repos\Automobile\Source.cpp(327,20): warning C4101: 'x': unreferenced local variable
+C:\Users\gutar\source\repos\Automobile\Source.cpp(533,17): warning C4101: 'x': unreferenced local variable
+C:\Users\gutar\source\repos\Automobile\Source.cpp(617,20): warning C4101: 'x': unreferenced local variable
+C:\Users\gutar\source\repos\Automobile\Source.cpp(764,21): warning C4101: 'x': unreferenced local variable
+C:\Users\gutar\source\repos\Automobile\Source.cpp(427,17): warning C4101: 'x': unreferenced local variable
+C:\Users\gutar\source\repos\Automobile\Source.cpp(407): message : while compiling class template member function 'T &Vanzare<T>::operator -=(T &)'
+          with
+          [
+              T=Mini
+          ]
+C:\Users\gutar\source\repos\Automobile\Source.cpp(696): message : see reference to function template instantiation 'T &Vanzare<T>::operator -=(T &)' being compiled
+          with
+          [
+              T=Mini
+          ]
+C:\Users\gutar\source\repos\Automobile\Source.cpp(640): message : see reference to class template instantiation 'Vanzare<Mini>' being compiled
+C:\Users\gutar\source\repos\Automobile\Source.cpp(537): warning C4715: 'Vanzare<Monovolum>::operator-=': not all control paths return a value
+C:\Users\gutar\source\repos\Automobile\Source.cpp(431): warning C4715: 'Vanzare<Compacta>::operator-=': not all control paths return a value
+C:\Users\gutar\source\repos\Automobile\Source.cpp(431): warning C4715: 'Vanzare<Mica>::operator-=': not all control paths return a value
+C:\Users\gutar\source\repos\Automobile\Source.cpp(431): warning C4715: 'Vanzare<Mini>::operator-=': not all control paths return a value
+  Automobile.vcxproj -> C:\Users\gutar\source\repos\Automobile\Debug\Automobile.exe
