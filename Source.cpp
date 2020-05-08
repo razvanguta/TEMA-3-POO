@@ -11,7 +11,7 @@ protected:
     static int nrtotaut;
     string zona; //de oras, off-road, drum lung
     string dimensiune; //dimensiune masina (difera de la fiecare tip)
-    float nrUsi; //numarul de usi de care dispune fiecare tip
+    int nrUsi; //numarul de usi de care dispune fiecare tip
     int nrpersoane; //numarul maxim de persoane care poate fi transportat
     float pret; //pretul fiecarui tip (euro)
 public:
@@ -43,7 +43,7 @@ public:
     {
         return nrpersoane;
     }
-    virtual int getpret() const
+    virtual float getpret() const
     {
         return pret;
     }
@@ -60,7 +60,7 @@ public:
         nrtotaut--;
     }
 };
-int Automobil::nrtotaut = 0;
+int Automobil::nrtotaut=0;
 Automobil::Automobil(string zona, string dimensiune, float nrUsi, int nrpersoane, float pret) :zona(zona), dimensiune(dimensiune), nrUsi(nrUsi), nrpersoane(nrpersoane), pret(pret)
 {
     nrtotaut++;
@@ -106,7 +106,7 @@ class Mini : public Automobil
     const bool estesh = true;
 public:
     Mini(string zona = "", string dimensiune = "", float nrUsi = 0, int nrpersoane = 0, float pret = 0);
-    friend bool operator ==(Mini& m1, Mini& m2);
+    friend bool operator ==(Mini& m1,Mini& m2);
     Mini& operator=(Mini& m);
     void citire(istream& in);
     void afisare(ostream& out) const;
@@ -124,9 +124,9 @@ public:
 Mini::Mini(string zona, string dimensiune, float nrUsi, int nrpersoane, float pret) :Automobil(zona, dimensiune, nrUsi, nrpersoane, pret)
 {
 }
-bool operator ==(Mini& m1, Mini& m2)
+bool operator ==(Mini& m1,Mini& m2)
 {
-    if (m1.zona == m2.zona && m1.dimensiune == m2.dimensiune && m1.nrUsi == m2.nrUsi && m1.nrpersoane == m2.nrpersoane && m1.pret == m2.pret)
+    if(m1.zona==m2.zona && m1.dimensiune==m2.dimensiune && m1.nrUsi==m2.nrUsi && m1.nrpersoane==m2.nrpersoane && m1.pret==m2.pret)
         return true;
     else
         return false;
@@ -154,7 +154,7 @@ class Mica : public Automobil
     const bool estesh = 0;
 public:
     Mica(string zona = "", string dimensiune = "", float nrUsi = 0, int nrpersoane = 0, float pret = 0);
-    friend bool operator ==(Mica& m1, Mica& m2);
+    friend bool operator ==(Mica& m1,Mica& m2);
     Mica& operator=(Mica& m);
     void citire(istream& in);
     void afisare(ostream& out) const;
@@ -171,9 +171,9 @@ public:
 Mica::Mica(string zona, string dimensiune, float nrUsi, int nrpersoane, float pret) :Automobil(zona, dimensiune, nrUsi, nrpersoane, pret)
 {
 }
-bool operator ==(Mica& m1, Mica& m2)
+bool operator ==(Mica& m1,Mica& m2)
 {
-    if (m1.zona == m2.zona && m1.dimensiune == m2.dimensiune && m1.nrUsi == m2.nrUsi && m1.nrpersoane == m2.nrpersoane && m1.pret == m2.pret)
+    if(m1.zona==m2.zona && m1.dimensiune==m2.dimensiune && m1.nrUsi==m2.nrUsi && m1.nrpersoane==m2.nrpersoane && m1.pret==m2.pret)
         return true;
     else
         return false;
@@ -202,7 +202,7 @@ class Compacta : public Automobil
     string model; // hatchback, combi sau sedan
 public:
     Compacta(string model = "", string zona = "", string dimensiune = "", float nrUsi = 0, int nrpersoane = 0, float pret = 0);
-    friend bool operator ==(Compacta& m1, Compacta& m2);
+    friend bool operator ==(Compacta& m1,Compacta& m2);
     Compacta& operator=(Compacta& c);
     void citire(istream& in);
     bool getstare() const
@@ -223,9 +223,9 @@ public:
 Compacta::Compacta(string model, string zona, string dimensiune, float nrUsi, int nrpersoane, float pret) :Automobil(zona, dimensiune, nrUsi, nrpersoane, pret), model(model)
 {
 }
-bool operator ==(Compacta& m1, Compacta& m2)
+bool operator ==(Compacta& m1,Compacta& m2)
 {
-    if (m1.model == m2.model && m1.zona == m2.zona && m1.dimensiune == m2.dimensiune && m1.nrUsi == m2.nrUsi && m1.nrpersoane == m2.nrpersoane && m1.pret == m2.pret)
+    if(m1.model==m2.model && m1.zona==m2.zona && m1.dimensiune==m2.dimensiune && m1.nrUsi==m2.nrUsi && m1.nrpersoane==m2.nrpersoane && m1.pret==m2.pret)
         return true;
     else
         return false;
@@ -265,7 +265,7 @@ class Monovolum : public Automobil
     bool estesh;
 public:
     Monovolum(int anfabricat = 0, int anachizitie = 0, int ziactuala = 0, int lunaactuala = 0, bool estesh = true, string zona = "", string dimensiune = "", float nrUsi = 0, int nrpersoane = 0, float pret = 0);
-    friend bool operator ==(Monovolum& m1, Monovolum& m2);
+    friend bool operator ==(Monovolum& m1,Monovolum& m2);
     Monovolum& operator=(Monovolum& m);
     void citire(istream& in);
     void afisare(ostream& out) const;
@@ -282,9 +282,9 @@ public:
 Monovolum::Monovolum(int anfabricat, int anachizitie, int ziactuala, int lunaactuala, bool estesh, string zona, string dimensiune, float nrUsi, int nrpersoane, float pret) :Automobil(zona, dimensiune, nrUsi, nrpersoane, pret), anfabricat(anfabricat), anachizitie(anachizitie), lunaactuala(lunaactuala), ziactuala(ziactuala), estesh(estesh)
 {
 }
-bool operator ==(Monovolum& m1, Monovolum& m2)
+bool operator ==(Monovolum& m1,Monovolum& m2)
 {
-    if (m1.anfabricat == m2.anfabricat && m1.zona == m2.zona && m1.dimensiune == m2.dimensiune && m1.nrUsi == m2.nrUsi && m1.nrpersoane == m2.nrpersoane && m1.pret == m2.pret)
+    if(m1.anfabricat==m2.anfabricat && m1.zona==m2.zona && m1.dimensiune==m2.dimensiune && m1.nrUsi==m2.nrUsi && m1.nrpersoane==m2.nrpersoane && m1.pret==m2.pret)
         return true;
     else
         return false;
@@ -361,7 +361,7 @@ void Monovolum::afisare(ostream& out) const
     out << "Numarul de usi: " << nrUsi << '\n';
     out << "Numarul de persoane care pot fi transportate: " << nrpersoane << '\n';
     out << "Pretul in euro dupa aplicarea eventualelor reduceri (vechime, anumita data din vara): " << pret << '\n';
-    out << "Anul in care a fost fabricata masina: " << anfabricat << '\n';
+    out<< "Anul in care a fost fabricata masina: "<<anfabricat<<'\n';
 }
 ///-------------------------------------------------
 template <class T>
@@ -382,7 +382,7 @@ public:
     {
         return nrvand;
     }
-    T& operator -=(T& c);
+    T& operator -=(T&c);
     void afismasini();
     void afisvand();
     ~Vanzare();
@@ -390,8 +390,8 @@ public:
 template<class T>
 Vanzare<T>::Vanzare()
 {
-    nrstoc = 0;
-    nrvand = 0;
+    nrstoc=0;
+    nrvand=0;
     try
     {
         stoc = new T[1001];
@@ -407,26 +407,26 @@ T& Vanzare<T>:: operator-=(T& c)
 {
     try
     {
-        if (nrstoc == 0)
+        if(nrstoc==0)
             throw false;
-        bool ok = false;
+        bool ok=false;
         int poz;
-        for (int i = 0; i < nrstoc; i++)
-            if (stoc[i] == c)
-                ok = true, poz = i;
-        vandute[nrvand++] = stoc[poz];
-        if (ok == true)
+        for(int i=0; i<nrstoc; i++)
+            if(stoc[i]==c)
+                ok=true,poz=i;
+        if(ok==false)
+            throw false;
+        vandute[nrvand++]=stoc[poz];
+        if(ok==true)
         {
-            for (int i = poz; i < nrstoc; i++)
-                stoc[i] = stoc[i + 1];
+            for(int i=poz; i<nrstoc; i++)
+                stoc[i]=stoc[i+1];
             nrstoc--;
         }
-        else
-            throw false;
     }
-    catch (bool x)
+    catch(bool x)
     {
-        cout << "NU EXISTA O MASINA " << c.type() << " CU ACESTE CARACTERISTICI INTRODUSE\n";
+        cout<<"NU EXISTA O MASINA "<<c.type()<<" CU ACESTE CARACTERISTICI INTRODUSE\n";
     }
 }
 template<class T>
@@ -437,24 +437,24 @@ void Vanzare<T>::addmasina(T& c)
 template<class T>
 void Vanzare<T>::afismasini()
 {
-    if (nrstoc == 0)
+    if(nrstoc==0)
     {
-        cout << "NU EXISTA MASINI IN STOC\n\n";
+        cout<<"NU EXISTA MASINI IN STOC\n\n";
         return;
     }
-    for (int i = 0; i < nrstoc; i++)
-        cout << stoc[i] << endl;
+    for(int i=0; i<nrstoc; i++)
+        cout<<stoc[i]<<endl;
 }
 template<class T>
 void Vanzare<T>::afisvand()
 {
-    if (nrvand == 0)
+    if(nrvand==0)
     {
-        cout << "NU EXISTA MASINI VANDUTE\n\n";
+        cout<<"NU EXISTA MASINI VANDUTE\n\n";
         return;
     }
-    for (int i = 0; i < nrvand; i++)
-        cout << vandute[i] << endl;
+    for(int i=0; i<nrvand; i++)
+        cout<<vandute[i]<<endl;
 }
 template <class T>
 Vanzare<T>::~Vanzare()
@@ -494,9 +494,9 @@ public:
 };
 Vanzare<Monovolum>::Vanzare()
 {
-    nrstoc = 0;
-    nrvand = 0;
-    nrsh = 0;
+    nrstoc=0;
+    nrvand=0;
+    nrsh=0;
     try
     {
         stoc = new Monovolum[1001];
@@ -511,55 +511,55 @@ Monovolum& Vanzare<Monovolum>:: operator-=(Monovolum& c)
 {
     try
     {
-        if (nrstoc == 0)
+        if(nrstoc==0)
             throw false;
-        bool ok = false;
+        bool ok=false;
         int poz;
-        for (int i = 0; i < nrstoc; i++)
-            if (stoc[i] == c)
-                ok = true, poz = i;
-        if (stoc[poz].getstare() == true)
+        for(int i=0; i<nrstoc; i++)
+            if(stoc[i]==c)
+                ok=true,poz=i;
+        if(stoc[poz].getstare()==true)
             nrsh--;
-        vandute[nrvand++] = stoc[poz];
-        if (ok == true)
+        vandute[nrvand++]=stoc[poz];
+        if(ok==true)
         {
-            for (int i = poz; i < nrstoc; i++)
-                stoc[i] = stoc[i + 1];
+            for(int i=poz; i<nrstoc; i++)
+                stoc[i]=stoc[i+1];
             nrstoc--;
         }
         else
             throw false;
     }
-    catch (bool x)
+    catch(bool x)
     {
-        cout << "NU EXISTA O MASINA " << c.type() << " CU ACESTE CARACTERISTICI INTRODUSE\n";
+        cout<<"NU EXISTA O MASINA "<<c.type()<<" CU ACESTE CARACTERISTICI INTRODUSE\n";
     }
 }
 void Vanzare<Monovolum>::addmasina(Monovolum& c)
 {
     stoc[nrstoc++] = c;
-    if (c.getstare() == true)
+    if(c.getstare()==true)
         nrsh++;
 }
 void Vanzare<Monovolum>::afismasini()
 {
-    if (nrstoc == 0)
+    if(nrstoc==0)
     {
-        cout << "NU EXISTA MASINI IN STOC\n\n";
+        cout<<"NU EXISTA MASINI IN STOC\n\n";
         return;
     }
-    for (int i = 0; i < nrstoc; i++)
-        cout << stoc[i] << endl;
+    for(int i=0; i<nrstoc; i++)
+        cout<<stoc[i]<<endl;
 }
 void Vanzare<Monovolum>::afisvand()
 {
-    if (nrvand == 0)
+    if(nrvand==0)
     {
-        cout << "NU EXISTA MASINI VANDUTE\n\n";
+        cout<<"NU EXISTA MASINI VANDUTE\n\n";
         return;
     }
-    for (int i = 0; i < nrvand; i++)
-        cout << vandute[i] << endl;
+    for(int i=0; i<nrvand; i++)
+        cout<<vandute[i]<<endl;
 }
 Vanzare<Monovolum>::~Vanzare()
 {
@@ -586,25 +586,25 @@ int main()
         {
             v[i]=new Mini;
             cin>>*v[i];
-            stoc.insert(make_pair(*&v[i],false));
+            stoc.insert(make_pair(v[i],false));
         }
         else if(tip=="Mica")
         {
             v[i]=new Mica;
             cin>>*v[i];
-            stoc.insert(make_pair(*&v[i],false));
+            stoc.insert(make_pair(v[i],false));
         }
         else if(tip=="Compacta")
         {
            v[i]=new Compacta;
             cin>>*v[i];
-            stoc.insert(make_pair(*&v[i],false));
+            stoc.insert(make_pair(v[i],false));
         }
         else if(tip=="Monovolum")
         {
             v[i]=new Monovolum;
             cin>>*v[i];
-            stoc.insert(make_pair(*&v[i],(*v[i]).getstare()));
+            stoc.insert(make_pair(v[i],(*v[i]).getstare()));
         }
         else
             throw false;
@@ -636,135 +636,136 @@ int main()
     /// MENIU GESTIONARE STOC MASINI
     cout << "---------------------------------------\n";
     cout << "Gestionarea stocului de masini\n";
-    int op = INT_MAX;
+    int op=INT_MAX;
     Vanzare<Mini> stocMini;
     Vanzare<Mica> stocMica;
     Vanzare<Compacta> stocCompacta;
     Vanzare<Monovolum> stocMonovolum;
-    cout << "Alege operatiuniile dorite din meniul de mai jos\n\n";
-    cout << "1: Adauga in stoc o masina de tipul Mini\n";
-    cout << "2: Adauga in stoc o masina de tipul Mica\n";
-    cout << "3: Adauga in stoc o masina de tipul Compacta\n";
-    cout << "4: Adauga in stoc o masina de tipul Monovolum\n";
-    cout << "5: Vinde o masina din stoc de tipul Mini\n";
-    cout << "6: Vinde o masina din stoc de tipul Mica\n";
-    cout << "7: Vinde o masina din stoc de tipul Compacta\n";
-    cout << "8: Vinde o masina din stoc de tipul Monovolum\n";
-    cout << "9: Vezi numarul de masini din stoc pe fiecare categorie in parte\n";
-    cout << "10: Vezi masiniile din stoc pe fiecare categorie in parte\n";
-    cout << "11: Vezi numarul de masini vandute pe fiecare categorie in parte\n";
-    cout << "12: Vezi masiniile vandute pe fiecare categorie in parte\n";
-    cout << "13: Cate masini din stoc sunt noi sau second hand(DOAR PENTRU MONOVOLUME)\n";
-    cout << "0: STOP\n";
-    while (true)
+    cout<<"Alege operatiuniile dorite din meniul de mai jos\n\n";
+    cout<<"1: Adauga in stoc o masina de tipul Mini\n";
+    cout<<"2: Adauga in stoc o masina de tipul Mica\n";
+    cout<<"3: Adauga in stoc o masina de tipul Compacta\n";
+    cout<<"4: Adauga in stoc o masina de tipul Monovolum\n";
+    cout<<"5: Vinde o masina din stoc de tipul Mini\n";
+    cout<<"6: Vinde o masina din stoc de tipul Mica\n";
+    cout<<"7: Vinde o masina din stoc de tipul Compacta\n";
+    cout<<"8: Vinde o masina din stoc de tipul Monovolum\n";
+    cout<<"9: Vezi numarul de masini din stoc pe fiecare categorie in parte\n";
+    cout<<"10: Vezi masiniile din stoc pe fiecare categorie in parte\n";
+    cout<<"11: Vezi numarul de masini vandute pe fiecare categorie in parte\n";
+    cout<<"12: Vezi masiniile vandute pe fiecare categorie in parte\n";
+    cout<<"13: Cate masini din stoc sunt noi sau second hand(DOAR PENTRU MONOVOLUME)\n";
+    cout<<"0: STOP\n";
+    while(true)
     {
         try
         {
-            cout << "\nOperatiunea: ";
-            cin >> op;
-            if (op == 0)
+            cout<<"\nOperatiunea: ";
+            cin>>op;
+            if(op==0)
                 break;
-            if (op == 1)
+            if(op==1)
             {
                 Mini newMini;
-                cin >> newMini;
+                cin>>newMini;
                 stocMini.addmasina(newMini);
             }
-            else if (op == 2)
+            else if(op==2)
             {
                 Mica newMica;
-                cin >> newMica;
+                cin>>newMica;
                 stocMica.addmasina(newMica);
             }
-            else if (op == 3)
+            else if(op==3)
             {
                 Compacta newCompacta;
-                cin >> newCompacta;
+                cin>>newCompacta;
                 stocCompacta.addmasina(newCompacta);
             }
-            else if (op == 4)
+            else if(op==4)
             {
                 Monovolum newMonovolum;
-                cin >> newMonovolum;
+                cin>>newMonovolum;
                 stocMonovolum.addmasina(newMonovolum);
             }
-            else if (op == 5)
+            else if(op==5)
             {
-                cout << "Introdu caracteristiciile masinii Mini pe care vrei sa o cumperi\n";
+                cout<<"Introdu caracteristiciile masinii Mini pe care vrei sa o cumperi\n";
                 Mini cumpMini;
-                cin >> cumpMini;
-                stocMini -= cumpMini;
+                cin>>cumpMini;
+                stocMini-=cumpMini;
             }
-            else if (op == 6)
+            else if(op==6)
             {
-                cout << "Introdu caracteristiciile masinii Mici pe care vrei sa o cumperi\n";
+                cout<<"Introdu caracteristiciile masinii Mici pe care vrei sa o cumperi\n";
                 Mica cumpMica;
-                cin >> cumpMica;
-                stocMica -= cumpMica;
+                cin>>cumpMica;
+                stocMica-=cumpMica;
             }
-            else if (op == 7)
+            else if(op==7)
             {
-                cout << "Introdu caracteristiciile masinii Compacte pe care vrei sa o cumperi\n";
+                cout<<"Introdu caracteristiciile masinii Compacte pe care vrei sa o cumperi\n";
                 Compacta cumpCompacta;
-                cin >> cumpCompacta;
-                stocCompacta -= cumpCompacta;
+                cin>>cumpCompacta;
+                stocCompacta-=cumpCompacta;
             }
-            else if (op == 8)
+            else if(op==8)
             {
-                cout << "Introdu caracteristiciile masinii Monovolum pe care vrei sa o cumperi\n";
+                cout<<"Introdu caracteristiciile masinii Monovolum pe care vrei sa o cumperi\n";
                 Monovolum cumpMonovolum;
-                cin >> cumpMonovolum;
-                stocMonovolum -= cumpMonovolum;
+                cin>>cumpMonovolum;
+                stocMonovolum-=cumpMonovolum;
             }
-            else if (op == 9)
+            else if(op==9)
             {
-                cout << "In stoc se afla " << stocMini.getmasini() << " masini mini\n";
-                cout << "In stoc se afla " << stocMica.getmasini() << " masini mici\n";
-                cout << "In stoc se afla " << stocCompacta.getmasini() << " masini Compacte\n";
-                cout << "In stoc se afla " << stocMonovolum.getmasini() << " masini Monovolume\n";
-                cout << "In total se afla " << stocMini.getmasini() + stocMica.getmasini() + stocCompacta.getmasini() + stocMonovolum.getmasini() << " masini in stoc\n";
+                cout<<"In stoc se afla "<<stocMini.getmasini()<<" masini mini\n";
+                cout<<"In stoc se afla "<<stocMica.getmasini()<<" masini mici\n";
+                cout<<"In stoc se afla "<<stocCompacta.getmasini()<<" masini Compacte\n";
+                cout<<"In stoc se afla "<<stocMonovolum.getmasini()<<" masini Monovolume\n";
+                cout<<"In total se afla "<<stocMini.getmasini()+stocMica.getmasini()+stocCompacta.getmasini()+stocMonovolum.getmasini()<<" masini in stoc\n";
             }
-            else if (op == 10)
+            else if(op==10)
             {
-                cout << "Masiniile mini din stoc:\n";
+                cout<<"Masiniile mini din stoc:\n";
                 stocMini.afismasini();
-                cout << "Masiniile mici din stoc:\n";
+                cout<<"Masiniile mici din stoc:\n";
                 stocMica.afismasini();
-                cout << "Masiniile compacte din stoc:\n";
+                cout<<"Masiniile compacte din stoc:\n";
                 stocCompacta.afismasini();
-                cout << "Masiniile monovolum din stoc:\n";
+                cout<<"Masiniile monovolum din stoc:\n";
                 stocMonovolum.afismasini();
             }
-            else if (op == 11)
+            else if(op==11)
             {
-                cout << "S-au vandut " << stocMini.getvandut() << " masini mini\n";
-                cout << "S-au vandut " << stocMica.getvandut() << " masini mici\n";
-                cout << "S-au vandut " << stocCompacta.getvandut() << " masini Compacte\n";
-                cout << "S-au vandut " << stocMonovolum.getvandut() << " masini Compacte\n";
-                cout << "In total se afla " << stocMini.getvandut() + stocMica.getvandut() + stocCompacta.getvandut() + stocMonovolum.getvandut() << " masini vandute\n";
+                cout<<"S-au vandut "<<stocMini.getvandut()<<" masini mini\n";
+                cout<<"S-au vandut "<<stocMica.getvandut()<<" masini mici\n";
+                cout<<"S-au vandut "<<stocCompacta.getvandut()<<" masini Compacte\n";
+                cout<<"S-au vandut "<<stocMonovolum.getvandut()<<" masini Compacte\n";
+                cout<<"In total se afla "<<stocMini.getvandut()+stocMica.getvandut()+stocCompacta.getvandut()+stocMonovolum.getvandut()<<" masini vandute\n";
             }
-            else if (op == 12)
+            else if(op==12)
             {
-                cout << "Masiniile mini vandute:\n";
+                cout<<"Masiniile mini vandute:\n";
                 stocMini.afisvand();
-                cout << "Masiniile mici vandute:\n";
+                cout<<"Masiniile mici vandute:\n";
                 stocMica.afisvand();
-                cout << "Masiniile compacte vandute:\n";
+                cout<<"Masiniile compacte vandute:\n";
                 stocCompacta.afisvand();
-                cout << "Masiniile compacte vandute:\n";
+                cout<<"Masiniile compacte vandute:\n";
                 stocMonovolum.afisvand();
             }
-            else if (op == 13)
+            else if(op==13)
             {
-                cout << "In stoc sunt " << stocMonovolum.getmasini() - stocMonovolum.getnrsh() << " Monovolume noi\n";
-                cout << "In stoc sunt " << stocMonovolum.getnrsh() << " Monovolume second hand\n";
+                cout<<"In stoc sunt "<<stocMonovolum.getmasini()-stocMonovolum.getnrsh()<<" Monovolume noi\n";
+                cout<<"In stoc sunt "<<stocMonovolum.getnrsh()<<" Monovolume second hand\n";
             }
             else throw false;
         }
-        catch (bool x)
+        catch(bool x)
         {
-            cout << "Introdu o operatiune valida\n";
+            cout<<"Introdu o operatiune valida\n";
         }
     }
+
     return 0;
 }
